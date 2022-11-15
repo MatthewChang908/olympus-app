@@ -1,26 +1,47 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native'
-import "firebase/auth";
 import {auth} from "../firebase";
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from "firebase/auth"
+import {useNavigation} from "@react-navigation/core";
+
 
 const LoginScreen = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
+    const navigation = useNavigation()
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, user => {
+            if (user) {
+                navigation.replace("Home")
+            }
+        })
+        return unsubscribe
+    }, [])
+
     const handleSignUp = () => {
-        auth
-            .createUserWithEmailAndPassword(email,password)
-            .then(userCredentials => {
-                const user = userCredentials.user;
-                console.log(user.email);
-            })
-            .catch(error => alert(error.message))
+        createUserWithEmailAndPassword(auth, email,password)
+        .then((userCredentials) => {
+            const user = userCredentials.user;
+            console.log(user.email);
+        })
+        .catch(error => alert(error.message))
+    }
+    const handleLogin = () => {
+        signInWithEmailAndPassword(auth, email,password)
+        .then((userCredentials) => {
+            const user = userCredentials.user;
+            console.log("Logged in with: ", user.email);
+        })
+        .catch(error => alert(error.message))
     }
     return (
         <KeyboardAvoidingView
             style={styles.container}
             behavior="padding"
         >
+            <Text>Olympus</Text>
             <View style={styles.inputContainer}>
                 <TextInput
                     placeholder={"Email"}
@@ -39,7 +60,7 @@ const LoginScreen = () => {
 
             <View style={styles.buttonContainer}>
                 <TouchableOpacity
-                    onPress={() => {}}
+                    onPress={handleLogin}
                     style={styles.loginButton}>
                     <Text style={styles.loginText}>Login</Text>
                 </TouchableOpacity>
