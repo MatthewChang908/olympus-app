@@ -25,7 +25,7 @@ const WelcomeScreen = ({navigation}) => {
     </View>
   )
 }
-// 
+
 export default WelcomeScreen
 
 const styles = StyleSheet.create({

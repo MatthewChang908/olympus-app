@@ -28,6 +28,7 @@ const SignupScreen = () => {
         })
         .catch(error => alert(error.message))
     }
+    /*
     const handleLogin = () => {
         signInWithEmailAndPassword(auth, email,password)
         .then((userCredentials) => {
@@ -36,6 +37,7 @@ const SignupScreen = () => {
         })
         .catch(error => alert(error.message))
     }
+    */
     return (
         <KeyboardAvoidingView
             style={styles.container}
