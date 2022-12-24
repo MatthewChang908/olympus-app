@@ -6,7 +6,7 @@ const WelcomeScreen = ({navigation}) => {
     <View
         style={styles.container}
     >
-      <Image style={styles.logo} source={require('./fading_logo.png')} />
+      <Image style={styles.logo} source={require('../assets/fading_logo.png')} />
       
 
       <View style={styles.buttonContainer}>

@@ -10,9 +10,9 @@ const HomeScreen = () => {
     <View style={styles.container}>
 
       <View style={styles.header}>
-        <Image style={styles.logo} source={require('./olympus_logo.png')} />
+        <Image style={styles.logo} source={require('../assets/olympus_logo.png')} />
         <TouchableOpacity style={styles.searchButton}>
-          <Image source={require('./search.png')}></Image>
+          <Image source={require('../assets/search.png')}></Image>
         </TouchableOpacity>
       </View>
 
@@ -26,17 +26,17 @@ const HomeScreen = () => {
 
       <View style={styles.footer}>
         <TouchableOpacity style={styles.button}>
-          <Image style={styles.pic} source={require('./home.png')}></Image>
+          <Image style={styles.pic} source={require('../assets/home.png')}></Image>
           <Text style={styles.footerText}>Home</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.button}>
-          <Image style={styles.pic} source={require('./new_workout.png')}></Image>
+          <Image style={styles.pic} source={require('../assets/new_workout.png')}></Image>
           <Text style={styles.footerText}>Workout Builder</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.button}>
-          <Image style={styles.pic} source={require('./profile.png')}></Image>
+          <Image style={styles.pic} source={require('../assets/profile.png')}></Image>
           <Text style={styles.footerText}>Profile</Text>
         </TouchableOpacity>
       </View>

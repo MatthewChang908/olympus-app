@@ -43,7 +43,7 @@ const SignupScreen = () => {
             style={styles.container}
             behavior="padding"
         >
-            <Image source={require('./olympus_logo.png')} />
+            <Image source={require('../assets/olympus_logo.png')} />
             <View style={styles.inputContainer}>
                 <Text style={styles.inputText}>Name</Text>
                 <TextInput

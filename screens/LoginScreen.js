@@ -26,7 +26,7 @@ const LoginScreen = ({navigation}) => {
     }
     return (
     <KeyboardAvoidingView style={styles.container} behavior="padding">
-        <Image style={styles.logo} source={require('./olympus_logo.png')} />
+        <Image style={styles.logo} source={require('../assets/olympus_logo.png')} />
         
         <View style={styles.inputContainer}>
             <Text style={styles.inputText}>Email</Text>
