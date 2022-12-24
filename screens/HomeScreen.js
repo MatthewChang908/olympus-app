@@ -6,6 +6,15 @@ import { auth } from '../firebase'
 const HomeScreen = () => {
   const navigation = useNavigation()
 
+  const handleSignOut = () => {
+    auth
+      .signOut()
+      .then(() => {
+        navigation.replace("Welcome")
+      })
+      .catch(error => alert(error.message))
+  }
+
   return (
     <View style={styles.container}>
 
@@ -39,6 +48,13 @@ const HomeScreen = () => {
           <Image style={styles.pic} source={require('../assets/profile.png')}></Image>
           <Text style={styles.footerText}>Profile</Text>
         </TouchableOpacity>
+
+        <TouchableOpacity
+        onPress={handleSignOut}
+        style={styles.button}
+      >
+        <Text style={styles.buttonText}>Sign out</Text>
+      </TouchableOpacity>
       </View>
 
     </View>

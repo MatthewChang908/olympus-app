@@ -43,6 +43,10 @@ const SignupScreen = () => {
             style={styles.container}
             behavior="padding"
         >
+            <TouchableOpacity
+                onPress={() => {navigation.navigate('Signup')}}>
+                <Text style={styles.signUpText}></Text>
+            </TouchableOpacity>
             <Image source={require('../assets/olympus_logo.png')} />
             <View style={styles.inputContainer}>
                 <Text style={styles.inputText}>Name</Text>
