@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View, Image} from 'react-native'
+import {KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View, Image, Button} from 'react-native'
 import {auth} from "../firebase";
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from "firebase/auth"
 import {useNavigation} from "@react-navigation/core";
@@ -28,26 +28,24 @@ const SignupScreen = () => {
         })
         .catch(error => alert(error.message))
     }
-    /*
-    const handleLogin = () => {
-        signInWithEmailAndPassword(auth, email,password)
-        .then((userCredentials) => {
-            const user = userCredentials.user;
-            console.log("Logged in with: ", user.email);
-        })
-        .catch(error => alert(error.message))
-    }
-    */
+
     return (
         <KeyboardAvoidingView
             style={styles.container}
             behavior="padding"
         >
-            <TouchableOpacity
-                onPress={() => {navigation.navigate('Signup')}}>
-                <Text style={styles.signUpText}></Text>
-            </TouchableOpacity>
-            <Image source={require('../assets/olympus_logo.png')} />
+            <View style={styles.header}>
+                <Button style={styles.back}
+                    onPress={() => {navigation.navigate('Welcome')}}
+                    title="< Back"
+                    color="#E6C466">
+                </Button>
+                <Image style={styles.logo} source={require('../assets/olympus_logo.png')} />
+                <Button style={styles.back}
+                    title="< Back"
+                    color="#000000">
+                </Button>
+            </View>
             <View style={styles.inputContainer}>
                 <Text style={styles.inputText}>Name</Text>
                 <TextInput
@@ -93,6 +91,16 @@ const SignupScreen = () => {
 export default SignupScreen
 
 const styles = StyleSheet.create({
+    header: {
+        display: 'flex',
+        flexDirection: "row",
+        width: '90%',
+        alignItems: "flex-end",
+        justifyContent: "space-between"
+    },
+    back: {
+        color: "#E6C466",
+    },
     container: {
         backgroundColor: "black",
         flex: 1,

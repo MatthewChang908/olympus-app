@@ -26,8 +26,19 @@ const LoginScreen = ({navigation}) => {
     }
     return (
     <KeyboardAvoidingView style={styles.container} behavior="padding">
-        <Image style={styles.logo} source={require('../assets/olympus_logo.png')} />
-        
+        <View style={styles.header}>
+            <Button style={styles.back}
+                    onPress={() => {navigation.navigate('Welcome')}}
+                    title="< Back"
+                    color="#E6C466">
+            </Button>
+            <Image style={styles.logo} source={require('../assets/olympus_logo.png')} />
+            <Button style={styles.back}
+                    title="< Back"
+                    color="#000000">
+            </Button>
+        </View>
+
         <View style={styles.inputContainer}>
             <Text style={styles.inputText}>Email</Text>
             <TextInput
@@ -46,9 +57,11 @@ const LoginScreen = ({navigation}) => {
             />
         </View>
         <View style={styles.forgotContainer}>
-            <Button style={styles.forgotPass}
-                title="Forgot Password?">
-            </Button>
+            <TouchableOpacity
+                onPress={() => {navigation.navigate('ForgotPass')}}
+                style={[styles.forgotPass]}>
+                <Text style={styles.forgotText}>Forgot Password?</Text>
+            </TouchableOpacity>
         </View>
         
 
@@ -66,63 +79,77 @@ const LoginScreen = ({navigation}) => {
 export default LoginScreen
 
 const styles = StyleSheet.create({
-  container: {
-      backgroundColor: "black",
-      flex: 1,
-      flexDirection: "column",
-      justifyContent: "center",
-      alignItems: "center",
-  },
-  logo: {
-      alignSelf: "center"
-  },
-  inputContainer:{
-      alignSelf: "center",
-      width: '90%'
-  },
-  forgotContainer: {
-      alignSelf:"left"
-  },
-  forgotPass: {
-    marginLeft: 50
-  },
-  input: {
-      color: "#E6C466",
-      paddingHorizontal: 0,
-      paddingVertical: 0,
-      marginTop: 5,
-      borderBottomColor: 'white',
-      borderBottomWidth: 2,
-      fontSize: 20,
-  },
-  inputText: {
-      color: "white",
-      paddingBottom: 0,
-      paddingTop: 20,
-      fontSize: 20,
-  },
-  buttonContainer: {
-      width:'90%',
-      alignSelf: "center",
-      justifyContent: "center",
-      alignItems: "center",
-      marginTop: 20,
-  },
-  loginButton: {
-      backgroundColor: "#E6C466",
-      width: '100%',
-      padding: 0,
-      borderRadius: 10,
-      alignItems: "center",
-      height: 48,
-      borderColor: "#E6C466",
-      borderWidth: 2,
-      justifyContent: "center",
-  },
-  loginText: {
-      color: "black",
-      fontSize: 20,
-  },
+    header: {
+        display: 'flex',
+        flexDirection: "row",
+        width: '90%',
+        alignItems: "flex-end",
+        justifyContent: "space-between"
+    },
+    back: {
+        color: "#E6C466",
+    },
+    logo: {
+    },
+    container: {
+        backgroundColor: "black",
+        flex: 1,
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    inputContainer:{
+        alignSelf: "center",
+        width: '90%'
+    },
+    forgotContainer: {
+        width: '90%',
+    },
+    forgotPass: {
+        width: '90%',
+        marginTop: 12
+    },
+    forgotText: {
+
+        color: "white",
+    },
+    input: {
+        color: "#E6C466",
+        paddingHorizontal: 0,
+        paddingVertical: 0,
+        marginTop: 5,
+        borderBottomColor: 'white',
+        borderBottomWidth: 2,
+        fontSize: 20,
+    },
+    inputText: {
+        color: "white",
+        paddingBottom: 0,
+        paddingTop: 20,
+        fontSize: 20,
+    },
+    buttonContainer: {
+        width:'90%',
+        alignSelf: "center",
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 20,
+    },
+    loginButton: {
+        backgroundColor: "#E6C466",
+        width: '100%',
+        padding: 0,
+        borderRadius: 10,
+        alignItems: "center",
+        height: 48,
+        borderColor: "#E6C466",
+        borderWidth: 2,
+        justifyContent: "center",
+    },
+    loginText: {
+        color: "black",
+        fontSize: 20,
+    },
 
 
 })

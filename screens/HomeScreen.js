@@ -33,12 +33,20 @@ const HomeScreen = () => {
         </TouchableOpacity>
       </View>
 
+
+      
       <View style={styles.footer}>
-        <TouchableOpacity style={styles.button}>
+
+      <TouchableOpacity onPress={handleSignOut} style={styles.button}>
           <Image style={styles.pic} source={require('../assets/home.png')}></Image>
           <Text style={styles.footerText}>Home</Text>
         </TouchableOpacity>
 
+        <TouchableOpacity style={styles.button}>
+          <Image style={styles.pic} source={require('../assets/home.png')}></Image>
+          <Text style={styles.footerText}>Home</Text>
+        </TouchableOpacity>
+        
         <TouchableOpacity style={styles.button}>
           <Image style={styles.pic} source={require('../assets/new_workout.png')}></Image>
           <Text style={styles.footerText}>Workout Builder</Text>
